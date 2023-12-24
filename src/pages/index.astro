@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { buttonVariants } from '../components/ui/button'
+---
+
+<BaseLayout
+  title="Greenify"
+  description="Lets make the planet better"
+>
+  <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <div class="flex max-w-[980px] flex-col items-start gap-2">
+      <h1
+        class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+      >
+        Greenify. <br class="hidden sm:inline" />
+         built with Shadcn UI and Astro.
+      </h1>
+      <p class="max-w-[700px] text-lg text-muted-foreground">
+        Making the planet better 
+      </p>
+    </div>
+    <div class="flex gap-4">
+      <a
+        href="https://ui.shadcn.com"
+        target="_blank"
+        rel="noreferrer"
+        class={buttonVariants()}
+      >
+        Documentation
+      </a>
+      
+    </div>
+  </section>
+</BaseLayout>
