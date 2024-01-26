@@ -1,22 +1,29 @@
 ---
 import { buttonVariants } from '../components/ui/button'
 import ThemeToggle from '../components/ThemeToggle.astro'
-
+import { useState } from 'react';
+let isOpen = true;
 ---
 
 <header
   class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
->
+  
+  >
   <div
     class="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0"
-  >
+  > 
     <div class="flex gap-6 md:gap-10">
       <a href="/" class="flex items-center space-x-2">
-        <span class="inline-block font-bold">Greenify</span>
+          <span class="inline-block font-bold">Greenify</span>
       </a>
     </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
-      <nav class="flex items-center space-x-1">
+      <button id="menu-button" class="md:hidden" @click={() => isOpen = !isOpen}>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+      <nav id="menu" class={`flex items-center space-x-1 md:flex ${isOpen ? 'open' : ''}`}>
         <a
           href="/about"
           rel="noreferrer"
@@ -25,14 +32,102 @@ import ThemeToggle from '../components/ThemeToggle.astro'
           About
         </a>
         <a
-          href="/costs"
+          href="/solutions"
           rel="noreferrer"
           class={buttonVariants({ variant: 'ghost' })}
         >
-          Costs
+          Solutions
         </a>
+        <a
+          href="/solar"
+          rel="noreferrer"
+          class={buttonVariants({ variant: 'ghost' })}
+        >
+          Solar
+        </a>
+        <a
+        href="/costs"
+        rel="noreferrer"
+        class={buttonVariants({ variant: 'ghost' })}
+      >
+        Costs
+      </a>
+      <a
+      href="/sources"
+      rel="noreferrer"
+      class={buttonVariants({ variant: 'ghost' })}
+    >
+      Sources
+    </a>
         <ThemeToggle />
       </nav>
     </div>
   </div>
 </header>
+
+<script >
+
+const menuButton = document.getElementById('menu-button');
+  const menu = document.getElementById('menu');
+  
+
+  if (menuButton && menu) {
+    menuButton.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'none' ? 'flex' : 'none';
+     
+    });
+  }
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })()
+
+  if (theme === 'light') {
+    document.documentElement.classList.remove('dark')
+  } else {
+    document.documentElement.classList.add('dark')
+  }
+
+  window.localStorage.setItem('theme', theme === 'light' ? 'light' : 'dark')
+
+
+
+</script>
+<style>
+  #menu-button {
+    display: none;
+  }
+
+  #menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    background-color: var(--background);
+  }
+
+  
+
+  @media (max-width: 639px) {
+    #menu-button {
+      display: block;
+    }
+
+    #menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 65px; /* Adjust this value to position the dropdown below the menu button */
+      width: 100vw;
+      overflow: auto;
+      background-color: rgba(27, 25, 25, 0.475); /* Semi-transparent white */
+      border: 1px solid #ccc;
+    }
+
+  }
+</style>

@@ -1,19 +1,26 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
-import { buttonVariants } from '../components/ui/button'
+import * as solarPost from '../mdx/solar.md'
 ---
 
 <BaseLayout>
   <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
     <div class="flex max-w-[980px] flex-col items-start gap-2">
       <h1
-        class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+        class="text-5xl font-extrabold leading-tight tracking-tighter md:text-4xl"
       >
-        Costs. <br class="hidden sm:inline" />
+        Solar. <br class="hidden sm:inline" />
         
       </h1>
      
+
+
     </div>
+
+    <solarPost.default/>
+    
    
   </section>
+
+
 </BaseLayout>

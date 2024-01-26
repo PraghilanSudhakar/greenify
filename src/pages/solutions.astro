@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { buttonVariants } from '../components/ui/button'
+import * as solutions1Post from '../mdx/solutions1.md'
+import * as solutions2Post from '../mdx/solutions2.md'
+import * as solutions3Post from '../mdx/solutions3.md'
+import * as solutions4Post from '../mdx/solutions4.md'
+import * as solutions5Post from '../mdx/solutions5.md'
+---
+
+<BaseLayout>
+  <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <div class="flex max-w-[980px] flex-col items-start gap-2">
+      <h1
+        class="text-4xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+      >
+        Energy Efficient Appliances <br class="hidden sm:inline" />
+         
+      </h1>
+     
+      <solutions1Post.default />
+
+      <h1
+      class="text-4xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+    >
+    Green Roofs and Walls. <br class="hidden sm:inline" />
+           
+  </h1>
+  <solutions2Post.default />  
+
+  <h1
+  class="text-4xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+>
+Efficient Appliances. <br class="hidden sm:inline" />
+       
+</h1>
+<solutions3Post.default />  
+
+<h1
+  class="text-4xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+>
+Solar Panels. <br class="hidden sm:inline" />
+       
+</h1>
+<solutions4Post.default />  
+
+
+<h1
+  class="text-4xl font-extrabold leading-tight tracking-tighter md:text-4xl"
+>
+Rainwater Irrigation. <br class="hidden sm:inline" />
+       
+</h1>
+<solutions5Post.default />  
+
+    </div>
+
+  
+
+   
+  </section>
+</BaseLayout>
