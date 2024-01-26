@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { buttonVariants } from '../components/ui/button'
+import * as sourcesPost from '../mdx/sources.md'
 ---
 
 <BaseLayout>
   <section class="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffd700" fill-opacity="1" d="M0,64L40,101.3C80,139,160,213,240,256C320,299,400,309,480,277.3C560,245,640,171,720,133.3C800,96,880,96,960,101.3C1040,107,1120,117,1200,133.3C1280,149,1360,171,1400,181.3L1440,192L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg>
     <div class="flex max-w-[980px] flex-col items-start gap-2">
       <h1
         class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl"
@@ -12,6 +14,7 @@ import { buttonVariants } from '../components/ui/button'
        Sources. <br class="hidden sm:inline" />
         
       </h1>
+      <sourcesPost.default />
      
     </div>
    
